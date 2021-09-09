@@ -1,0 +1,21 @@
+@import 'settings';
+
+body{
+    background-color: $primary-background;
+    font: $primary-copy-font;
+    font-size: 12;
+}
+
+h1{
+    color: $primary-dark;
+    font: $primary-title-font;
+    font-size: 4em;
+    font-style: italic;
+}
+
+h2{
+    color: $primary-highlight;
+    font: $secondary-title-font;
+    font-size: 2em;
+    font-style: italic;
+}
