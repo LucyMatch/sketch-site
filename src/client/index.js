@@ -1,10 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import "babel-polyfill"
 
-import './styles/main.scss';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
-import App from './App';
-import AppRouter from './router';
+import store from './store'
 
-ReactDOM.render(<App />, document.getElementById('app'));
-ReactDOM.render(<AppRouter />, document.getElementById('footer'));
+import App from './components/App'
+
+import './styles/main.scss'
+
+// import { getSketches } from './actions'
+// store.dispatch(getSketches())
+
+render(
+<Provider store={store}>
+    <App />
+</Provider>,
+document.getElementById("app")
+)
