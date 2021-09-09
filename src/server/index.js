@@ -26,16 +26,16 @@ app.use(express.json());
     Returns a list of all enabled sketches - based on 
     .env mode local / production
     set sketch status in server/settings/sketch_list.json
+
+    @TODO: set data strucring for this - we want norm + ids
+            curr just going into app as array....
+            additionally will want to set filtering for "active" sketches
 */
 app.get('/api/sketch-list', (req, res, next) => {
     promiseRetry(utilities.promiseSettings, (retry, number) => {
+        if(number > 1)console.debug('get sketches', number)
 
-        if(number > 1)console.debug('get shipping countries attempt number', number)
-
-        //old non api method - more info in shopify.js
-        // return shopify.getCountries(config.backend.shippingCodes.uri)
-        //     .catch((err) => retry(err))
-        return shopify.getCountries()
+        return utilities.getLocalFile( process.env.SKETCH_LIST_LOCAL, 'sketch list file' )
             .catch((err) => retry(err))
     })
     .then(data => res.json(data))
@@ -54,10 +54,10 @@ app.get('/*', function (req, res) {
 
 function logErrors(err, req, res, next) {
     if(err.stack){
-        //console.error(err.stack)
+        console.error(err.stack)
         logger.error(err.stack)
     }else{
-        //console.error(err)
+        console.error(err)
         logger.error(err)
     }
 	next(err)
@@ -89,4 +89,4 @@ app.use(errorhandler)
 
 /*  START SERVER  */
 
-server.listen(process.env.PORT || 8080, () => console.log(`Listening on Port : ${process.env.PORT || 8080}!`));
+app.listen(process.env.PORT || 8080, () => console.log(`Listening on Port : ${process.env.PORT || 8080}!`));

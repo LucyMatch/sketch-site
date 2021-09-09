@@ -14,7 +14,6 @@ function getLocalFile( path, description ){
 			})
 		}
         let data = JSON.parse(raw)
-        config = data;
 		resolve(data)
     })
 }

@@ -43,11 +43,14 @@ export const getSketches = () => {
             //returning a value , in turn this value gets passed as the return value of the dispatch method
             //we are retruning a promise to wait for.. 
             return fetch('api/sketch-list')
-
-            .then( 
-                (res) => dispatch( recSketches(res) ),
-                (err) => dispatch( errSketches('GET SKETCHES: ' + err[0].message) )
-            )
+            .then(response => {
+				if(!response.ok)
+					throw formatError(response)
+				return response
+			})
+			.then(response => response.json())
+			.then(data => dispatch(recSketches(data)))
+			.catch(err => dispatch(errSketches(err)))
         }
     }
 }
@@ -60,7 +63,7 @@ functions
 */
 
 function shouldFetchSketches(state) {
-    if (Object.keys(state.sketches).length > 0) {
+    if (Object.keys(state.app.sketches).length > 0) {
         return false
     } else {
         return true

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import {
 	BrowserRouter as Router,
@@ -47,8 +46,8 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		const { dispatch, getSketches} = this.props
-		dispatch(getSketches())
+		const { getSketches} = this.props
+		getSketches()
 	}
 
 	componentDidUpdate(){
@@ -65,12 +64,13 @@ class App extends Component {
 				<BrowserRouter ref={this.router}>
 					<AnimatedSwitch/>
 				</BrowserRouter>
+				{/* nav to go here */}
 			</div>
 		)
 	}
 }
 
-App.PropTypes = {
+App.propTypes = {
 
 }
 

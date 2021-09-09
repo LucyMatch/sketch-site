@@ -6,12 +6,9 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 
-import App from './components/App'
+import App from './containers/App'
 
 import './styles/main.scss'
-
-// import { getSketches } from './actions'
-// store.dispatch(getSketches())
 
 render(
 <Provider store={store}>
