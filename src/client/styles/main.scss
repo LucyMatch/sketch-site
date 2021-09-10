@@ -21,6 +21,20 @@ h2{
 }
 
 .sketch{
-    background-color: yellow;
-    height: 100vh;
+    background-color: $primary-highlight;
+    height: 92vh;
+}
+
+// nav
+.list-group-item{
+    background-color: $primary-light;
+    color: $primary-dark;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition-duration: 1s;
+    &:hover{
+        background-color: $primary-dark;
+        color: $primary-light;
+        letter-spacing: 2px;
+    }
 }
