@@ -18,7 +18,13 @@ import SketchNavFooter from '../containers/SketchNavFooter'
 //		having their own slug is still desirable
 //		but this method requires me to be manual here and use settings file to control
 //		what i display - would be nicer to just use that data to control everything
+
+//@TODO:
+// have routing at /sketches/:id component
+// the sketches component loads the p5 sketch dynaically
+
 import SimpleSketch from './sketches/SimpleSketch'
+import A from './sketches/A'
 
 // //so we can add css transitions to switch pages
 const AnimatedSwitch = withRouter(({ location }) => (
@@ -27,7 +33,11 @@ const AnimatedSwitch = withRouter(({ location }) => (
 		<CSSTransition key={location.key} classNames="page" timeout={1000}>
 			<Switch location={location}>
 
+				<Route exact path="/" render={() => (<Redirect to="/a" />)} />
 				{/* <Route exact path="/" render={(props) => <HomePage {...props} />} /> */}
+
+				{/* @TODO: sketches/:id - component for loading sketches! */}
+				<Route exact path={"/a"} component={A}></Route>
 				<Route exact path={"/simple-sketch"} component={SimpleSketch}></Route>
 
 				<Route exact path="/error" component={ErrorPage}>
