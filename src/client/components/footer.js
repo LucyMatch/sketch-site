@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import ListGroup from 'react-bootstrap/ListGroup'
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+    useHistory
   } from "react-router-dom";
 
-const Footer = ({ sketches }) => {
+const Footer = ({ sketches, onClick }) => {
+    let history = useHistory()
+
     return(
         <Router>
             <ListGroup horizontal>
                 {sketches.map((item) => (
-                    <ListGroup.Item action href={item.slug} key={item.file} >{item.title}</ListGroup.Item>
+                    <ListGroup.Item action onClick={() => onClick(history, item)} key={item.id} >{item.title}</ListGroup.Item>
 			    ))}
             </ListGroup>
         </Router>

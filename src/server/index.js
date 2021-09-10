@@ -14,6 +14,7 @@ const app = express();
 //Proxy stuff here going through /api/ - may want to rethink?
 app.use(express.static('dist'));
 app.use('/api/libs', express.static(process.cwd() + '/node_modules'));
+app.use('/api/sketches', express.static(process.cwd() + '/sketches'));
 
 app.use(express.urlencoded());
 app.use(express.json());

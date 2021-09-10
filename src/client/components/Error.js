@@ -25,7 +25,7 @@ const Error = ({ errors, onReload, history }) => {
     )
 }
 
-Error.PropTypes = {
+Error.propTypes = {
 
 }
 

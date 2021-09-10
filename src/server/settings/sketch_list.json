@@ -1,18 +1,18 @@
 [
     {
-        "title": "Simple Sketch",
-        "file" : "SimpleSketch",
+        "id": "test-01",
+        "title": "test",
+        "file" : "test",
         "status": "wip",
         "active": true,
-        "development" : true,
-        "slug" : "simple-sketch" 
+        "development" : true
     },
     {
-        "title": "A",
-        "file" : "A",
+        "id": "test-02",
+        "title": "test",
+        "file" : "test2",
         "status": "wip",
         "active": true,
-        "development" : true,
-        "slug" : "a" 
+        "development" : true
     }
 ]

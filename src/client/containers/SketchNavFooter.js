@@ -6,8 +6,8 @@ const mapStateToProps = (state) => ({
  })
 
 const mapDispatchToProps = (dispatch) => ({
-    onClick : () => { 
-        /* not doing anything yet here */
+    onClick : ( h , i) => {
+        h.push( '/sketch/' + i.id )
     }
 })
 
