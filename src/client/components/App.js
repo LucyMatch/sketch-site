@@ -11,13 +11,14 @@ import {
 } from "react-router-dom"
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-//@TODO: how to import dynamically based off of sketch-list?
-import SimpleSketch from './sketches/SimpleSketch'
-
 import ErrorPage from '../containers/ErrorPage'
 import SketchNavFooter from '../containers/SketchNavFooter'
 
-
+//@TODO: thing about a better way to dynamically render sketches
+//		having their own slug is still desirable
+//		but this method requires me to be manual here and use settings file to control
+//		what i display - would be nicer to just use that data to control everything
+import SimpleSketch from './sketches/SimpleSketch'
 
 // //so we can add css transitions to switch pages
 const AnimatedSwitch = withRouter(({ location }) => (
@@ -25,22 +26,10 @@ const AnimatedSwitch = withRouter(({ location }) => (
 		{/* @TODO: write sass for transition */}
 		<CSSTransition key={location.key} classNames="page" timeout={1000}>
 			<Switch location={location}>
-                
-				{/* @TODO: dynamically populate based off sketch-list*/}
-                <Route exact path="/simple-sketch" component={SimpleSketch}>
-				</Route>
 
-				{/* <Route exact path="/" render={(props) => <HomePage {...props} />} />
-				<Route exact path="/cart" component={CartView}>
-				</Route>
-				<Route exact path="/form" component={ContactShippingView}>
-				</Route>
-				<Route exact path="/checkout" component={ConfirmationView}>
-				</Route>
-				<Route exact path="/thankyou" component={Thankyou}>
-				</Route>
-				*/}
-				{/* @TODO: test this */}
+				{/* <Route exact path="/" render={(props) => <HomePage {...props} />} /> */}
+				<Route exact path={"/simple-sketch"} component={SimpleSketch}></Route>
+
 				<Route exact path="/error" component={ErrorPage}>
 				</Route> 
 			</Switch>
