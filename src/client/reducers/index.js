@@ -7,7 +7,7 @@ import {
 
 const defaultApp = {
     error : undefined,
-    sketches : {}
+    sketches : []   // @TODO: should make this a OBJ - with ids -> reformat data with normalizer on server
 }
 
 const app = ( state = defaultApp, action) => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Error from '../../components/Error'
+import Error from '../components/Error'
 
 const getErrors = () => {
     let e = []

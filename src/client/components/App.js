@@ -10,15 +10,23 @@ import {
 	BrowserRouter
 } from "react-router-dom"
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+
+//@TODO: how to import dynamically based off of sketch-list?
 import SimpleSketch from './sketches/SimpleSketch'
+
+import ErrorPage from '../containers/ErrorPage'
+import SketchNavFooter from '../containers/SketchNavFooter'
+
 
 
 // //so we can add css transitions to switch pages
 const AnimatedSwitch = withRouter(({ location }) => (
 	<TransitionGroup>
+		{/* @TODO: write sass for transition */}
 		<CSSTransition key={location.key} classNames="page" timeout={1000}>
 			<Switch location={location}>
                 
+				{/* @TODO: dynamically populate based off sketch-list*/}
                 <Route exact path="/simple-sketch" component={SimpleSketch}>
 				</Route>
 
@@ -31,8 +39,10 @@ const AnimatedSwitch = withRouter(({ location }) => (
 				</Route>
 				<Route exact path="/thankyou" component={Thankyou}>
 				</Route>
+				*/}
+				{/* @TODO: test this */}
 				<Route exact path="/error" component={ErrorPage}>
-				</Route> */}
+				</Route> 
 			</Switch>
 		</CSSTransition>
 	</TransitionGroup>
@@ -64,7 +74,7 @@ class App extends Component {
 				<BrowserRouter ref={this.router}>
 					<AnimatedSwitch/>
 				</BrowserRouter>
-				{/* nav to go here */}
+				<SketchNavFooter />
 			</div>
 		)
 	}
