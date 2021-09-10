@@ -1,8 +1,10 @@
 [
     {
-        "title": "SimpleSketch",
-        "status": "complete",
+        "title": "Simple Sketch",
+        "file" : "SimpleSketch",
+        "status": "wip",
         "active": true,
-        "development" : true
+        "development" : true,
+        "slug" : "simple-sketch" 
     }
 ]
