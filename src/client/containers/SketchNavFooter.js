@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import Footer from '../components/Footer'
 
 const mapStateToProps = (state) => ({
-    sketches : state.app.sketches
+    sketches : state.app.sketches.filter(s => s.active)
  })
 
 const mapDispatchToProps = (dispatch) => ({
