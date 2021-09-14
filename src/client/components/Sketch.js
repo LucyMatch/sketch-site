@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react'
 import Container from 'react-bootstrap/Container'
-// import ScriptTag from 'react-script-tag'
 import useScript from '../hooks/useScript';
 import PropTypes from 'prop-types'
 
