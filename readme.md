@@ -5,6 +5,8 @@ this branch is just the basic react x redux structure with basic routing
 
 @TODO:
 * tidy this up 
+    * make references to "sketches" more general -> i.e. "data"
+    * add data norming in so we have object format not array 
 * create it's own repo - good app starting place
 
 ****
