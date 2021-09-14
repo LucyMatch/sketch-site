@@ -4,7 +4,7 @@ const Promise = require('bluebird')
 const http = require('http')
 const promiseRetry = require('promise-retry')
 
-//const Structure = require('./dataStructure.js')   //not using yet
+const structure = require('./dataStructure.js')   //not using yet
 const utilities = require('./utilities.js')
 
 require('dotenv').config() //get main config settings from .env
@@ -39,7 +39,14 @@ app.get('/api/sketch-list', (req, res, next) => {
         return utilities.getLocalFile( process.env.SKETCH_LIST_LOCAL, 'sketch list file' )
             .catch((err) => retry(err))
     })
-    .then(data => res.json(data))
+    .then( data => {
+        console.log(data)
+        return structure.normIDs( data, "sketches" )
+    })
+    .then(data => {
+        console.log(data)
+        res.json(data)
+    })
     .catch(err => next(err))
 })
 

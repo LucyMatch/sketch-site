@@ -1,5 +1,7 @@
 const fs = require('fs')
 const { normalize, schema } = require('normalizr')
+const utilities = require('./utilities.js')
+require('dotenv').config() //get creds from .env
 
 /* 
 
@@ -8,4 +10,13 @@ const { normalize, schema } = require('normalizr')
 
 */
 
-module.exports = {  }
+/* 
+    standard norming for an obj that has one layer of nesting + ids as main attribute
+*/
+const normIDs = ( data, name ) => {
+    const contentSchema = new schema.Entity(name, {}, {idAttribute : 'id'})
+    const contentListSchema = [contentSchema]
+    return normalize(data, contentListSchema)
+}
+
+module.exports = { normIDs }
