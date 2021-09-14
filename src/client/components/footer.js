@@ -11,7 +11,7 @@ const Footer = ({ sketches, onClick }) => {
 
     return(
         <Router>
-            <ListGroup horizontal>
+            <ListGroup horizontal class="footer" >
                 {Object.entries(sketches).map(([key, value]) => (
                     <ListGroup.Item action onClick={() => onClick(history, value)} key={key} >{value.title}</ListGroup.Item>
                 ))}

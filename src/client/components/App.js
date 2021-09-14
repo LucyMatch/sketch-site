@@ -47,10 +47,12 @@ class App extends Component {
 	}
 
 	componentDidUpdate(){
-		if(this.props.error){
-			console.log('FATAL ERROR', this.props.error)
-			this.router.current.history.push("/error")
-		}	
+		//this is triggering too often for my likes
+		//we need to look at this
+		// if(this.props.error){
+		// 	console.log('FATAL ERROR', this.props.error)
+		// 	this.router.current.history.push("/error")
+		// }	
 	}
 
 	render() {
