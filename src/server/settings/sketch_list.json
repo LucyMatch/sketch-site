@@ -1,15 +1,17 @@
 [
     {
-        "id": "test-01",
-        "title": "test",
-        "file" : "test",
+        "id": "simple-cam",
+        "description" : "simple webcam sketch",
+        "title": "simple cam",
+        "file" : "simple-cam",
         "status": "wip",
         "active": true,
         "development" : true
     },
     {
         "id": "test-02",
-        "title": "test",
+        "description" : "testy test test",
+        "title": "testing",
         "file" : "test2",
         "status": "wip",
         "active": true,
