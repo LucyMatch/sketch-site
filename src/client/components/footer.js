@@ -12,16 +12,16 @@ const Footer = ({ sketches, onClick }) => {
     return(
         <Router>
             <ListGroup horizontal>
-                {sketches.map((item) => (
-                    <ListGroup.Item action onClick={() => onClick(history, item)} key={item.id} >{item.title}</ListGroup.Item>
-			    ))}
+                {Object.entries(sketches).map(([key, value]) => (
+                    <ListGroup.Item action onClick={() => onClick(history, value)} key={key} >{value.title}</ListGroup.Item>
+                ))}
             </ListGroup>
         </Router>
     )
 }
 
 Footer.propTypes = {
-    sketches : PropTypes.array.isRequired,
+    sketches : PropTypes.object.isRequired,
     onClick : PropTypes.func.isRequired
 }
 

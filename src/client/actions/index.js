@@ -63,7 +63,6 @@ functions
 */
 
 function shouldFetchSketches(state) {
-    console.log(state)
     if (Object.keys(state.app.sketches).length > 0) {
         return false
     } else {

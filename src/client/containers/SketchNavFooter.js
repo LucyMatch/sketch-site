@@ -1,8 +1,17 @@
 import { connect } from 'react-redux'
 import Footer from '../components/Footer'
 
+const getSketches = (state) =>{
+    var s = {}
+    state.app.sketchKeys.forEach( (id) =>{
+        if(state.app.sketches[id].active)
+            s[id] = (state.app.sketches[id])
+    })
+    return s
+}
+
 const mapStateToProps = (state) => ({
-    sketches : state.app.sketches.filter(s => s.active)
+    sketches : getSketches(state)
  })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -7,7 +7,8 @@ import {
 
 const defaultApp = {
     error : undefined,
-    sketches : []   // @TODO: should make this a OBJ - with ids -> reformat data with normalizer on server
+    sketches : {},
+    sketchKeys : []
 }
 
 const app = ( state = defaultApp, action) => {
@@ -15,7 +16,7 @@ const app = ( state = defaultApp, action) => {
         case SKETCHES_REQ :
             return {...state, isFetching: true}
         case SKETCHES_SUCCESS :
-            return{...state, isFetching: false, sketches: action.data}
+            return{...state, isFetching: false, sketches: action.data.entities.sketches, sketchKeys : action.data.result}
         case SKETCHES_FAIL :
             return{...state, isFetching: false, error : action.error}
         default :
