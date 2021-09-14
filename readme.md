@@ -1,12 +1,11 @@
 # Sketch Site
 ****
 
-Currently local development of p5.js sketches
+this branch is just the basic react x redux structure with basic routing
 
-* both p5 & react-p5 are installed
-* currently using only p5 raw 
-
-* this is a basic react app - redux may be integrated later if we start to deal with data
+@TODO:
+* tidy this up 
+* create it's own repo - good app starting place
 
 ****
 
